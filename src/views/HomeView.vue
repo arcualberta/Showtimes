@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {SolrSerachPanel} from "applets"
+//import {SolrSerachPanel} from ""
 
 </script>
 
