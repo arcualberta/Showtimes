@@ -1,4 +1,5 @@
 export const queryApi = "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
+//export const queryApi = "https://localhost:5020/api/solr-search"
 
 export enum eUiMode{
     Default = 0,
