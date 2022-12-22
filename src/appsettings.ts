@@ -1,4 +1,10 @@
+export const queryApi = null;// "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
 
+export enum eUiMode{
+    Default = 0,
+    Raw,
+    Curated
+}
 
 export enum eFieldType{
     Text = 1,
@@ -10,7 +16,6 @@ export enum eFieldType{
     DropDown,
     Radio
 }
-export const getFieldTypeLabel = (val: eFieldType): string => splitCamelCase(eFieldType[val])
 
 export interface SearchFieldDefinition{
     name: string,
@@ -58,4 +63,3 @@ export const solrFields:SearchFieldDefinition[] = [
     { name: "theater_url_t", label: "Theater URL", type: eFieldType.Text, options: [] },
 ];
 
-export const queryApi = "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
