@@ -28,3 +28,4 @@ coverage
 *.sw?
 /catfish.bat
 /package-lock.json
+/src/appsettings.ts
