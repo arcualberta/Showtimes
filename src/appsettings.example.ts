@@ -1,4 +1,4 @@
-export const queryApi = null;// "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
+export const queryApi = "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
 
 export enum eUiMode{
     Default = 0,
