@@ -86,7 +86,7 @@
       background-color:transparent;
   }
   
-      .button-cover:before {
+.button-cover:before {
           counter-increment: button-counter;
           content: counter(button-counter);
           position: absolute;
@@ -96,7 +96,7 @@
           font-size: 12px;
           line-height: 1;
           padding: 5px;
-      }
+    }
   
   .button-cover,
   .knobs,
