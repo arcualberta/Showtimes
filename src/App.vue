@@ -1,17 +1,27 @@
 <script setup lang="ts">
+import { onMounted } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+import { useShowtimeStore } from './stores';
 
+const store = useShowtimeStore();
+
+onMounted(() => {
+  store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
+})
 </script>
 
 <template>
+  <h1>Showtimes Database</h1>
   <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
+    <nav>
+        <RouterLink to="/">Filter</RouterLink>
         <RouterLink to="/raw">Query</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
       </nav>
   </header>
-  <RouterView />
+  <div class="mt-3">
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>
@@ -29,7 +39,8 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  
+  font-weight: bold;
 }
 
 nav a.router-link-exact-active:hover {
