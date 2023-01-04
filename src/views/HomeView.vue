@@ -1,11 +1,15 @@
 <script setup lang="ts">
 //import {SolrSerachPanel} from ""
-import {solrFields} from '@/appsettings'
+import {eUiMode, solrFields} from '@/appsettings'
 import { useShowtimeStore } from '@/stores';
+import { onMounted } from 'vue';
 import { entryTypeFieldName, entryTypeFieldOptions } from '../appsettings'
 
 const store = useShowtimeStore();
 
+onMounted(() => {
+  store.uiMode = eUiMode.Default
+})
 </script>
 
 <template>
@@ -15,5 +19,6 @@ const store = useShowtimeStore();
     :search-fields="solrFields" 
     :query-api="store.queryApi"
     :entry-type-field-name="entryTypeFieldName"
-    :entryTypeFieldOptions="entryTypeFieldOptions" />
+    :entryTypeFieldOptions="entryTypeFieldOptions"
+    :ui-mode="store.uiMode" />
 </template>

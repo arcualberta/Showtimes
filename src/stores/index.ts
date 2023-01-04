@@ -1,10 +1,11 @@
 import { defineStore } from "pinia";
-import { localQueryApi, localQueryApiDup, productionQueryApi, productionQueryApiDup } from '../appsettings';
+import { eUiMode, localQueryApi, localQueryApiDup, productionQueryApi, productionQueryApiDup } from '../appsettings';
 
 export const useShowtimeStore = defineStore('ShowtimeStore', {
     state: () => ({
         targetDuplicateIndex: false,
-        isLocalHost:true
+        isLocalHost:true,
+        uiMode: eUiMode.Default
     }),
     getters: {
         queryApi(): string {
