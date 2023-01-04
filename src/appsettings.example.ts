@@ -78,7 +78,7 @@ export const solrFields:SearchFieldDefinition[] = [
     { name: "movie_name_t", label: "Movie name", type: eFieldType.Text, options: [], entryType: eShowtimeEntryType.Showtime },
     { name: "show_date_dt", label: "Show date", type: eFieldType.Date, options: [], entryType: eShowtimeEntryType.Showtime },
     { name: "showtimes_ts", label: "Show time (HH:mm)", type: eFieldType.Text, options: [], entryType: eShowtimeEntryType.Showtime },
-    { name: "showtime_minutes_is", label: "Show minutes", type: eFieldType.Integer, options: [], entryType: eShowtimeEntryType.Showtime },
+    { name: "showtime_minutes_is", label: "Show time (minutes from 12:00 AM)", type: eFieldType.Integer, options: [], entryType: eShowtimeEntryType.Showtime },
     { name: "show_attributes_ts", label: "Show attrbibutes", type: eFieldType.Text, options: [], entryType: eShowtimeEntryType.Showtime },
     { name: "show_passes_t", label: "Show passes", type: eFieldType.Radio, options:["Y", "N"], entryType: eShowtimeEntryType.Showtime },
     { name: "show_festival_t", label: "Show festival", type: eFieldType.Text, options: [], entryType: eShowtimeEntryType.Showtime },
