@@ -31,3 +31,19 @@ a,
     padding: 0 2rem;
   }*/
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ecf0f2dc;
+    background-color: #4c4a4a;
+  }
+  a:hover {
+    color: #f1f2f7;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+  .table, .query-wrapper>div, .card{
+      background-color: lightgray;
+      color: #000000a6;
+  }
+}
