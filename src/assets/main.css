@@ -1,0 +1,66 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  /*body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }*/
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #ecf0f2dc;
+    background-color: #4c4a4a;
+  }
+  a:hover {
+    color: #f1f2f7;
+  }
+  
+  .btn{
+    background-color:#3b3b3b;
+    border-color: #3b3b3b;
+  }
+  .btn-primary{
+    background-color:#627d98;
+    border-color: #627d98;
+  }
+  .table, .query-wrapper>div, .card, .query{
+      background-color: #bdbdbd; /*#7e7e7e;*/
+      color:#3b3b3b;/* #fff;*/
+  }
+  .fa-copy{
+    background-color: transparent;
+    border-color: transparent;
+    color: #fff;
+  }
+  select{
+    background-color: #9e9e9e;
+  }
+  .fa-circle-plus{
+    color:#00897b;
+  }
+}

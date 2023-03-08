@@ -1,0 +1,280 @@
+
+.card {
+    padding: 2em;
+  }
+  
+  #app {
+      max-width: 1280px;
+      width:100%;
+      margin: 0 auto;
+      padding: 0 2rem;
+      /*text-align: center;*/
+  }
+  
+  @media (prefers-color-scheme: light) {
+    :root {
+      color: #213547;
+      background-color: #ffffff;
+    }
+    a:hover {
+      color: #747bff;
+    }
+    button {
+      background-color: #f9f9f9;
+    }
+  }
+  
+  .header {
+      background-color:#242424;
+      height: 2rem;
+      border-bottom: solid #808080 1px;
+      padding-top: 0.3rem;
+  }
+      .header a {
+          color: white;
+      }
+      .header a:hover {
+          font-weight: bold;
+      }
+  
+  
+  .fade-enter-active, .fade-leave-active {
+      transition: opacity 3s;
+  }
+  
+  .fade-enter, .fade-leave-to  .fade-leave-active{
+      opacity: 0;
+  }
+  .fa-icon {
+      margin: 5px 15px;
+      cursor: pointer;
+  }
+      .fa-icon.delete {
+          color: #dc3545;
+      }
+      .fa-icon.plus {
+          color: #4CAF50;
+      }
+      .fa-icon.add-option {
+          height: 25px;
+          width: 25px;
+      }
+      .fa-icon.field-delete {
+          float: right;
+          color: #dc3545;
+          height: 25px;
+          width: 25px;
+      }
+  .alert {
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      min-width:100%;
+  }
+  .alert-info {
+      color: #0c5460;
+      background-color: #d1ecf1;
+      border-color: #bee5eb;
+  }
+  .toggle-button-cover {
+      display: table-cell;
+      position: relative;
+  }
+  
+  .button-cover {
+      background-color:transparent;
+  }
+  
+.button-cover:before {
+          counter-increment: button-counter;
+          content: counter(button-counter);
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          color: #d7e3e3;
+          font-size: 12px;
+          line-height: 1;
+          padding: 5px;
+    }
+  
+  .button-cover,
+  .knobs,
+  .layer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+  }
+  
+  .button {
+      position: relative;
+      top: 50%;
+      width: 74px;
+      height: 25px;
+      margin: -30px auto 0 auto;
+      overflow: hidden;
+  }
+  
+      .button.r,
+      .button.r .layer {
+          border-radius: 100px;
+      }
+  
+      .button.b2 {
+          border-radius: 2px;
+      }
+  
+  .checkbox {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 3;
+  }
+  
+  .knobs {
+      z-index: 2;
+  }
+  
+  .layer {
+      width: 100%;
+      background-color: #f5bfbf;
+      transition: 0.3s ease all;
+      z-index: 1;
+  }
+  
+  /* Button 1 */
+  #button-1 .knobs:before {
+      content: "No";
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      width: 18px;
+      height: 18px;
+      color: #fff;
+      font-size: 8px;
+      /*font-weight: bold;*/
+      text-align: center;
+      line-height: 1;
+      padding: 6px 1px;
+      background-color: #f44336;
+      border-radius: 50%;
+      transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
+  }
+  /*#0b8533*/
+  #button-1 .checkbox:checked + .knobs:before {
+      content: "Yes";
+      left: 51px;
+      background-color: #0b8533;
+  }
+  
+  #button-1 .checkbox:checked ~ .layer {
+      background-color: #7eeda3;
+  }
+  
+  #button-1 .knobs,
+  #button-1 .knobs:before,
+  #button-1 .layer {
+      transition: 0.3s ease all;
+  }
+  .blue {
+      border-color: #B0F3F9;
+  }
+  .red {
+      border-color: #FCD2C2;
+  }
+  .btn-blue {
+      background-color: #B0F3F9;
+  }
+  .btn-red {
+      background-color: #FCD2C2;
+  }
+  .btn-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      border: none;
+      font-size: 20px;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #db2424;
+      background: transparent;
+  }
+  .modal-delete-btn {
+      background-color: #FFEDEB;
+      color: #A52913;
+      border: 1px solid #C70039;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1.15385;
+      padding: 8px .8em;
+  }
+      .modal-delete-btn:hover {
+          background-color: #FFBEB3;
+      }
+  .modal-confirm-btn {
+      background-color: #DEFFE6;
+      color: #2BA84A;
+      border: 1px solid #2DA249;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      line-height: 1.15385;
+      padding: 8px .8em;
+  }
+      .modal-confirm-btn:hover {
+          background-color: #A6F0B8;
+      }
+  
+      .modal-cancel-btn {
+          background-color: #e1ecf4;
+          border-radius: 5px;
+          border: 1px solid #7aa7c7;
+          box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
+          box-sizing: border-box;
+          color: #39739d;
+          cursor: pointer;
+          display: inline-block;
+          /*font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;*/
+          font-size: 16px;
+          font-weight: bold;
+          line-height: 1.15385;
+          margin: 0;
+          outline: none;
+          padding: 8px .8em;
+          position: relative;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          white-space: nowrap;
+      }
+  
+      .modal-cancel-btn:hover,
+      .modal-cancel-btn:focus {
+          background-color: #b3d3ea;
+          color: #2c5777;
+      }
+  
+      .modal-cancel-btn:focus {
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+      }
+  
+      .modal-cancel-btn:active {
+          background-color: #a0c7e4;
+          box-shadow: none;
+          color: #2c5777;
+      }
+  
+  
