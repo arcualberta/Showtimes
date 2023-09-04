@@ -34,7 +34,7 @@ app.use(router)
 app.use(BootstrapVue3) 
 app.use(IconsPlugin) 
 app.component('font-awesome-icon', FontAwesomeIcon)
-
+app.use(CatfishUI.FloatingVue)
 app.component("JobTracker", CatfishUI.Components.JobTracker)
 
 for (const entry of Object.entries({ 
