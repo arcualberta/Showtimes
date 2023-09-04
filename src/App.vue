@@ -16,6 +16,7 @@ onMounted(() => {
     <nav>
         <RouterLink to="/">Filter</RouterLink>
         <RouterLink to="/raw">Query</RouterLink>
+        <RouterLink to="/jobs">Jobs</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
       </nav>
   </header>

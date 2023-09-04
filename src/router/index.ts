@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import RawQueryView from '../views/RawQueryView.vue'
+import JobsView from '../views/JobsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,6 +15,11 @@ const router = createRouter({
       path: '/raw',
       name: 'raw',
       component: RawQueryView
+    },
+    {
+      path: '/jobs',
+      name: 'jobs',
+      component: JobsView
     },
     {
       path: '/login',

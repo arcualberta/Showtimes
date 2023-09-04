@@ -15,6 +15,11 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
             else {
                 return this.targetDuplicateIndex ? productionQueryApiDup : productionQueryApi;
             }
+        },
+        apiRoot(): string {
+            const queryApiStr = this.isLocalHost ? localQueryApi : productionQueryApi;
+            const index =queryApiStr.lastIndexOf('/');
+            return queryApiStr.substring(0, index);
         }
     }
 })
