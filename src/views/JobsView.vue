@@ -6,5 +6,5 @@ const store = useShowtimeStore();
 
 <template>
     <h4>Jobs</h4>
-    <JobTracker :api-root="store.apiRoot" />
+    <JobTracker :api-root="store.apiRoot" :page-size="5"/>
   </template>
