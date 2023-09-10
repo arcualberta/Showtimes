@@ -124,6 +124,14 @@ export const solrFields:SearchFieldDefinition[] = [
     { name: "theater_lat_d", label: "Theater latitude", type: eFieldType.Decimal, options: [], entryType: [eShowtimeEntryType.Theater, eShowtimeEntryType.Showtime] },
 ];
 
+export const sweepableFieldNames: string[] = [
+    "theater_country_s",
+    "intl_country_s",
+    "intl_release_dt",
+    "release_date_dt",
+    "show_date_dt"
+];
+
 /*
 
 //Filed list before remove less-useful emails as of email from Deb on 2023-04-19
