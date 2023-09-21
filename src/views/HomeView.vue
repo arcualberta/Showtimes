@@ -3,7 +3,7 @@
 import {eUiMode, solrFields} from '@/appsettings'
 import { useShowtimeStore } from '@/stores';
 import { onMounted } from 'vue';
-import { entryTypeFieldName, entryTypeFieldOptions } from '../appsettings'
+import { entryTypeFieldName, entryTypeFieldOptions, dataSourceOptions } from '../appsettings'
 
 const store = useShowtimeStore();
 
@@ -19,6 +19,7 @@ onMounted(() => {
     :search-fields="solrFields" 
     :query-api="store.queryApi"
     :entry-type-field-name="entryTypeFieldName"
+    :data-source-options="dataSourceOptions"
     :entryTypeFieldOptions="entryTypeFieldOptions"
     :ui-mode="store.uiMode" />
 </template>
