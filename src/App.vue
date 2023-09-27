@@ -5,6 +5,16 @@ import { useShowtimeStore } from './stores';
 
 const store = useShowtimeStore();
 
+const storedUser = sessionStorage.getItem("user");
+if(storedUser && storedUser?.length > 0){
+  store.user = storedUser
+}
+
+const logout = () => {
+  store.user = null;
+  return false;
+}
+
 onMounted(() => {
   store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
 })
@@ -17,7 +27,13 @@ onMounted(() => {
         <RouterLink to="/">Filter</RouterLink>
         <RouterLink to="/raw">Query</RouterLink>
         <RouterLink to="/jobs">Jobs</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
+        <span style="float: right;">
+          <span v-if="store.user?.length && store.user?.length > 0">
+            Welcome {{store.user}}!
+            <router-link :to="{}" href="" @click="logout">Logout</router-link>
+          </span>
+          <RouterLink v-else to="/login">Login</RouterLink>
+      </span>
       </nav>
   </header>
   <div class="mt-3">

@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { useShowtimeStore } from '@/stores';
+import { adminUsers }  from '@/appsettings'
 
-const store = useShowtimeStore();
+const showtimesStore = useShowtimeStore();
+
 </script>
 
 <template>
     <h4>Jobs</h4>
-    <JobTracker :api-root="store.apiRoot" :page-size="50"/>
+    <JobTracker :api-root="showtimesStore.apiRoot" :page-size="50" :user="showtimesStore.user" :admins="adminUsers"/>
   </template>

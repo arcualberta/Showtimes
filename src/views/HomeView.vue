@@ -21,5 +21,6 @@ onMounted(() => {
     :entry-type-field-name="entryTypeFieldName"
     :data-source-options="dataSourceOptions"
     :entryTypeFieldOptions="entryTypeFieldOptions"
-    :ui-mode="store.uiMode" />
+    :ui-mode="store.uiMode"
+    :user="store.user" />
 </template>

@@ -16,7 +16,7 @@ library.add(faIcons.faThList)
 library.add(faIcons.faArrowLeft)
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-//import { FontAwesomeIcon } from './library-exports'
+import { googleLocalClientId, googleProductionClientId } from '@/appsettings'
 
 import '../node_modules/applets/dist/style.css'
 
@@ -26,8 +26,12 @@ import router from './router'
 import './assets/main.css'
 
 import * as CatfishUI from 'applets'
+import vue3GoogleLogin from 'vue3-google-login'
 
 const app = createApp(App)
+
+const isLocalHost = (window.location?.host?.indexOf('localhost') >= 0)
+const googleClientId = isLocalHost ? googleLocalClientId : googleProductionClientId;
 
 app.use(createPinia())
 app.use(router)
@@ -35,15 +39,23 @@ app.use(BootstrapVue3)
 app.use(IconsPlugin) 
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(CatfishUI.FloatingVue)
-app.component("JobTracker", CatfishUI.Components.JobTracker)
+app.use(vue3GoogleLogin, {
+  //refer to https://docs.google.com/document/d/1N_y4aQupxPKPGh2eaxpOqCmc_75QionPp4U_MoY3gZQ/edit#heading=h.4zlex6l80fxx
+  clientId: googleClientId
+})
 
+app.component("JobTracker", CatfishUI.Components.JobTracker)
+app.component("Login", CatfishUI.Components.Login)
+app.component("SolrSearchPanel", CatfishUI.Components.SolrSearchPanel)
+
+/*
 for (const entry of Object.entries({ 
   ...CatfishUI
  })) { 
     if(entry[0] === 'Components')
         app.component("SolrSearchPanel", entry[1].SolrSearchPanel)
  }
- 
+ */
 
 
 app.mount('#app')

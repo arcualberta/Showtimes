@@ -13,5 +13,5 @@ onMounted(() => {
 
 <template>
   <h4>Solr Query</h4>
-  <SolrSearchPanel :search-fields="solrFields" :query-api="store.queryApi" :ui-mode="store.uiMode"/>
+  <SolrSearchPanel :search-fields="solrFields" :query-api="store.queryApi" :ui-mode="store.uiMode" :user="store.user"/>
 </template>

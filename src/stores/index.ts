@@ -1,11 +1,12 @@
 import { defineStore } from "pinia";
-import { eUiMode, localQueryApi, localQueryApiDup, productionQueryApi, productionQueryApiDup } from '../appsettings';
+import { eUiMode, localQueryApi, localQueryApiDup, productionQueryApi, productionQueryApiDup, localAuthApi, productionAuthApi } from '../appsettings';
 
 export const useShowtimeStore = defineStore('ShowtimeStore', {
     state: () => ({
         targetDuplicateIndex: false,
         isLocalHost:true,
-        uiMode: eUiMode.Default
+        uiMode: eUiMode.Default, 
+        user: null as string | null
     }),
     getters: {
         queryApi(): string {
@@ -20,6 +21,9 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
             const queryApiStr = this.isLocalHost ? localQueryApi : productionQueryApi;
             const index =queryApiStr.lastIndexOf('/');
             return queryApiStr.substring(0, index);
+        },
+        authApiRoot(): string {
+            return this.isLocalHost ? localAuthApi : productionAuthApi;
         }
     }
 })
