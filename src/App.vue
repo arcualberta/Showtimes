@@ -12,6 +12,7 @@ if(storedUser && storedUser?.length > 0){
 
 const logout = () => {
   store.user = null;
+  sessionStorage.removeItem("user")
   return false;
 }
 
