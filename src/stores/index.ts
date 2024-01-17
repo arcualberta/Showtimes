@@ -6,7 +6,8 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         targetDuplicateIndex: false,
         isLocalHost:true,
         uiMode: eUiMode.Default, 
-        user: null as string | null
+        user: null as string | null,
+        apiToken: null as string | null
     }),
     getters: {
         queryApi(): string {

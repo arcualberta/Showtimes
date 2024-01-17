@@ -1,7 +1,20 @@
-export const localQueryApi = "https://localhost:5020/api/solr-search"
-export const localQueryApiDup = "https://localhost:5021/api/solr-search"
+import type { Guid } from "guid-typescript";
+
+export const googleLocalClientId = "589183038778-u256nlels7v2443j3h1unvtp367f80s4.apps.googleusercontent.com";
+export const googleProductionClientId = "589183038778-i21iod3d3obrmot5vk3ap59akglg5a9u.apps.googleusercontent.com";
+
+//export const localQueryApi = "https://localhost:5020/api/solr-search"
+export const localQueryApi = "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
+export const localQueryApiDup = "https://catfish.artsrn.ualberta.ca/solr/api/SolrSearch"
 export const productionQueryApi = "/db/api/solr-search"
 export const productionQueryApiDup = "/db2/api/solr-search"
+
+export const localAuthApi = "https://auth.artsrn.ualberta.ca"
+export const productionAuthApi = "https://auth.artsrn.ualberta.ca"
+
+export const adminUsers = ['ranaweer@ualberta.ca', 'iwickram@ualberta.ca', 'debver@ualberta.ca']
+
+export const appId = "22edb968-b74c-4826-bef0-6fda9d6c349d" as unknown as Guid
 
 export enum eUiMode{
     Default = 0,
