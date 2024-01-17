@@ -26,5 +26,12 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         authApiRoot(): string {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
         }
+    },
+    actions: {
+        loadApiToken(): void {
+
+            //TODO: Obtain the API token from the auth API and store it in the apiToken property.
+
+        }
     }
 })
