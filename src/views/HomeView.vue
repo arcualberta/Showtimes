@@ -40,7 +40,7 @@ watch(apiToken, async (newVal, oldVal) => {
 
 <template>
   <div class="alert alert-danger">
-    API TOKEN ABC: {{ apiToken }}
+    API TOKEN ABC: {{ store.getApiToken }}
   </div>
   {{ editItemId }}
   <h4>Edit</h4>
@@ -57,7 +57,7 @@ watch(apiToken, async (newVal, oldVal) => {
     :user="store.user"
     :enable-editing="allowEdit"
     :edit-Page="'editPageCallback'"
-    :api-token="apiToken"
+    :api-token="store.getApiToken"
     :tenant-id="showtimesTenantId"
     />
 </template>
