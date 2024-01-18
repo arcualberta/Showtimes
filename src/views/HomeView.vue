@@ -30,11 +30,14 @@ onMounted(() => {
   store.uiMode = eUiMode.Default
 })
 
-const apiToken = ref(store.apiToken);
+const apiToken = ref(store.getApiToken);
 
 </script>
 
 <template>
+  <div class="alert alert-danger">
+    API TOKEN ABC: {{ apiToken }}
+  </div>
   {{ editItemId }}
   <h4>Edit</h4>
   <input v-model="editItemId" />

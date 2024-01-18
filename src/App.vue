@@ -22,15 +22,16 @@ onMounted(() => {
    store.loadApiToken();
 
 })
-  const apiToken = store.getApiToken;//ref(store.apiToken as string);
-console.log("apiToken" + apiToken)
+//  const apiToken = store.getApiToken;//ref(store.apiToken as string);
+//console.log("apiToken" + apiToken)
 
-/*watch(apiToken, async (newVal, oldVal) => {
+/*
+watch(apiToken, async (newVal, oldVal) => {
   
     apiToken.value = newVal as string;
     console.log("updated apiToken" + apiToken.value)
-});*/
-  
+});
+*/  
 
 </script>
 
