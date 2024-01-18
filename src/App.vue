@@ -18,6 +18,8 @@ const logout = () => {
 
 onMounted(() => {
   store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
+   store.loadApiToken();
+  //console.log("apiToken: " + store.getApiToken);
 })
 </script>
 
