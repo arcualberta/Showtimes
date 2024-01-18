@@ -4,7 +4,7 @@ export const googleLocalClientId = "589183038778-u256nlels7v2443j3h1unvtp367f80s
 export const googleProductionClientId = "589183038778-i21iod3d3obrmot5vk3ap59akglg5a9u.apps.googleusercontent.com";
 
 //export const localQueryApi = "https://localhost:5020/api/solr-search"
-export const localQueryApi = "https://showtimes.artsrn.ualberta.ca/db/api/solr-search"
+export const localQueryApi = "https://catfish.artsrn.ualberta.ca/solr/api/SolrSearch"
 export const localQueryApiDup = "https://catfish.artsrn.ualberta.ca/solr/api/SolrSearch"
 export const productionQueryApi = "/db/api/solr-search"
 export const productionQueryApiDup = "/db2/api/solr-search"
