@@ -4,7 +4,7 @@ import {eUiMode, solrFields} from '@/appsettings'
 import { useShowtimeStore } from '@/stores';
 import { onMounted, ref } from 'vue';
 import { entryTypeFieldName, entryTypeFieldOptions, dataSourceOptions } from '../appsettings'
-import { adminUsers }  from '@/appsettings'
+import { adminUsers, showtimesTenantId }  from '@/appsettings'
 import type {Guid} from 'guid-typescript'
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -29,6 +29,9 @@ const store = useShowtimeStore();
 onMounted(() => {
   store.uiMode = eUiMode.Default
 })
+
+const apiToken = ref(store.apiToken);
+
 </script>
 
 <template>
@@ -46,5 +49,8 @@ onMounted(() => {
     :ui-mode="store.uiMode"
     :user="store.user"
     :enable-editing="allowEdit"
-    :edit-Page="'editPageCallback'" />
+    :edit-Page="'editPageCallback'"
+    :api-token="apiToken"
+    :tenant-id="showtimesTenantId"
+    />
 </template>

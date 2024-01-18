@@ -14,7 +14,8 @@ export const productionAuthApi = "https://auth.artsrn.ualberta.ca"
 
 export const adminUsers = ['ranaweer@ualberta.ca', 'iwickram@ualberta.ca', 'debver@ualberta.ca']
 
-export const appId = "22edb968-b74c-4826-bef0-6fda9d6c349d" as unknown as Guid
+export const appId = "22edb968-b74c-4826-bef0-6fda9d6c349d" as unknown as Guid //on prod auth.api
+export const showtimesTenantId = "8deac4c1-6f12-43d8-9998-f59c814f0db6" as unknown as Guid //on prod auth.api
 
 export enum eUiMode{
     Default = 0,
