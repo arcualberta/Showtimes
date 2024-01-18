@@ -27,7 +27,7 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
         },
         getApiToken(): string{
-            return this.apiToken;
+            return this.apiToken ? this.apiToken : "apiToken is empty";
         }
     },
     actions: {
@@ -47,7 +47,7 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
                        // 'Authorization': `bearer ${jwtToken}`,
                     }
                 })
-                .then(response => response => response.text())
+                .then(response => response.text())
                .then(data => {
                    this.apiToken = data as string;
                })

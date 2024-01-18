@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+
+import { onMounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import { useShowtimeStore } from './stores';
 
@@ -19,12 +20,23 @@ const logout = () => {
 onMounted(() => {
   store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
    store.loadApiToken();
-  //console.log("apiToken: " + store.getApiToken);
+
 })
+  const apiToken = store.getApiToken;//ref(store.apiToken as string);
+console.log("apiToken" + apiToken)
+
+/*watch(apiToken, async (newVal, oldVal) => {
+  
+    apiToken.value = newVal as string;
+    console.log("updated apiToken" + apiToken.value)
+});*/
+  
+
 </script>
 
 <template>
   <h1>Showtimes Database</h1>
+  <div>ApiToken: {{store.getApiToken}}</div>
   <header>
     <nav>
         <RouterLink to="/">Filter</RouterLink>
