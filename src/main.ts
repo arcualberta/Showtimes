@@ -27,7 +27,7 @@ import './assets/main.css'
 
 import * as CatfishUI from 'applets'
 import vue3GoogleLogin from 'vue3-google-login'
-
+import * as SolrItemEditor from 'npm.solr-item-editor'
 const app = createApp(App)
 
 const isLocalHost = (window.location?.host?.indexOf('localhost') >= 0)
@@ -47,6 +47,7 @@ app.use(vue3GoogleLogin, {
 app.component("JobTracker", CatfishUI.Components.JobTracker)
 app.component("Login", CatfishUI.Components.Login)
 app.component("SolrSearchPanel", CatfishUI.Components.SolrSearchPanel)
+app.component("SolrItemEditor", SolrItemEditor.SolrItemEditor)
 
 /*
 for (const entry of Object.entries({ 

@@ -2,7 +2,9 @@
 import { useRoute } from 'vue-router';
 import type {Guid} from 'guid-typescript'
 import { useShowtimeStore } from '@/stores';
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import { getActivePinia, Pinia } from 'pinia';
+
 
 //import { useShowtimeStore } from '@/stores';
 //import { adminUsers }  from '@/appsettings'
@@ -11,16 +13,27 @@ import { ref } from 'vue';
 
 const route = useRoute();
 const id = route.params.id as unknown as Guid;
-
+//const pinia = getActivePinia() as Pinia;
 const store = useShowtimeStore();
+
+
 const apiToken = ref(store.getApiToken);
+watch(apiToken, async (newVal, oldVal) => {
+  
+    apiToken.value = newVal as string;
+    console.log("updated apiToken" + apiToken.value)
+});
 
 </script>
-
 <template>
     <h4>Edit Item</h4>
     
-    ID: {{ id }}
+    <!-- ID: {{ id }}
 
-    <div>API Token: {{ apiToken }}</div>
+    <div>API Token: {{ store.getApiToken }}</div> -->
+    <SolrItemEditor 
+               
+               :id="id" 
+               :api-token="store.getApiToken"
+               />
   </template>
