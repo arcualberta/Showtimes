@@ -39,10 +39,6 @@ watch(apiToken, async (newVal, oldVal) => {
 </script>
 
 <template>
-  <div class="alert alert-danger">
-    API TOKEN ABC: {{ store.getApiToken }}
-  </div>
-  {{ editItemId }}
   <h4>Edit</h4>
   <input v-model="editItemId" />
   <h4>Filter</h4>

@@ -37,7 +37,6 @@ watch(apiToken, async (newVal, oldVal) => {
 
 <template>
   <h1>Showtimes Database</h1>
-  <div>ApiToken: {{store.getApiToken}}</div>
   <header>
     <nav>
         <RouterLink to="/">Filter</RouterLink>
