@@ -36,6 +36,7 @@ watch(apiToken, async (newVal, oldVal) => {
     apiToken.value = newVal as string;
     console.log("updated apiToken" + apiToken.value)
 });
+
 </script>
 
 <template>
@@ -45,7 +46,7 @@ watch(apiToken, async (newVal, oldVal) => {
   <!--<input type="checkbox" v-model="store.targetDuplicateIndex" /> Use index with duplicate showtime records-->
   <SolrSearchPanel 
     :search-fields="solrFields" 
-    :query-api="store.queryApi"
+    :query-api="store.searchApiRoot"
     :entry-type-field-name="entryTypeFieldName"
     :data-source-options="dataSourceOptions"
     :entryTypeFieldOptions="entryTypeFieldOptions"

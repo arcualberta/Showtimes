@@ -10,6 +10,7 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         apiToken: null as string | null
     }),
     getters: {
+        /*
         queryApi(): string {
             if(this.isLocalHost){
                 return this.targetDuplicateIndex ? localQueryApiDup : localQueryApi;
@@ -18,10 +19,13 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
                 return this.targetDuplicateIndex ? productionQueryApiDup : productionQueryApi;
             }
         },
+        */
+        searchApiRoot(): string {
+            return `${this.apiRoot}/api/SolrSearch`
+        },
         apiRoot(): string {
-            const queryApiStr = this.isLocalHost ? localQueryApi : productionQueryApi;
-            const index =queryApiStr.lastIndexOf('/');
-            return queryApiStr.substring(0, index);
+            const apiStr = this.isLocalHost ? localQueryApi : productionQueryApi;
+            return (apiStr.endsWith('/')) ? apiStr.substring(0, apiStr.length - 1) : apiStr;
         },
         authApiRoot(): string {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
