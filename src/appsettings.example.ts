@@ -17,6 +17,9 @@ export const adminUsers = ['ranaweer@ualberta.ca', 'iwickram@ualberta.ca', 'debv
 export const appId = "22edb968-b74c-4826-bef0-6fda9d6c349d" as unknown as Guid //on prod auth.api
 export const showtimesTenantId = "8deac4c1-6f12-43d8-9998-f59c814f0db6" as unknown as Guid //on prod auth.api
 
+//fields that're specific to "showtimes" that need to be excluded from the solr-item-editor -- these are solr field name
+export const applicationSpecificExcludedFields=['entry_type_s','data_src_s','showtime_key_t','movie_id_i','parent_id_i',
+                                            'theater_id_i','origin_parent_id_i'];
 export enum eUiMode{
     Default = 0,
     Raw,

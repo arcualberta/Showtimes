@@ -4,7 +4,7 @@ import type {Guid} from 'guid-typescript'
 import { useShowtimeStore } from '@/stores';
 import { ref, watch } from 'vue';
 import { getActivePinia } from 'pinia';
-import { adminUsers, showtimesTenantId }  from '@/appsettings'
+import { adminUsers, showtimesTenantId, applicationSpecificExcludedFields }  from '@/appsettings'
 
 const route = useRoute();
 const id = route.params.id as unknown as Guid;
@@ -27,5 +27,6 @@ watch(apiToken, async (newVal, oldVal) => {
                :api-token="store.getApiToken"
                :tenant-id="showtimesTenantId"
                :api-root="store.apiRoot"
+               :appSpecificExcludedFields="applicationSpecificExcludedFields"
                />
   </template>
