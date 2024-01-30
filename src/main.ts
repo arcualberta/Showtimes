@@ -43,7 +43,6 @@ app.use(vue3GoogleLogin, {
   //refer to https://docs.google.com/document/d/1N_y4aQupxPKPGh2eaxpOqCmc_75QionPp4U_MoY3gZQ/edit#heading=h.4zlex6l80fxx
   clientId: googleClientId
 })
-
 app.component("JobTracker", CatfishUI.Components.JobTracker)
 app.component("Login", CatfishUI.Components.Login)
 app.component("SolrSearchPanel", CatfishUI.Components.SolrSearchPanel)

@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { eUiMode, localQueryApi, localQueryApiDup, productionQueryApi, productionQueryApiDup, localAuthApi, productionAuthApi, appId,showtimesTenantId } from '../appsettings';
+import { eUiMode, solrApiParent, localAuthApi, productionAuthApi, appId,showtimesTenantId } from '../appsettings';
 
 export const useShowtimeStore = defineStore('ShowtimeStore', {
     state: () => ({
@@ -10,22 +10,14 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         apiToken: null as string | null
     }),
     getters: {
-        /*
-        queryApi(): string {
-            if(this.isLocalHost){
-                return this.targetDuplicateIndex ? localQueryApiDup : localQueryApi;
-            }
-            else {
-                return this.targetDuplicateIndex ? productionQueryApiDup : productionQueryApi;
-            }
+        apiRoot1(): string {
+            return `${this.apiRootParent}/solr1`
         },
-        */
-        searchApiRoot(): string {
-            return `${this.apiRoot}/api/SolrSearch`
+        apiRoot2(): string {
+            return `${this.apiRootParent}/solr2`
         },
-        apiRoot(): string {
-            const apiStr = this.isLocalHost ? localQueryApi : productionQueryApi;
-            return (apiStr.endsWith('/')) ? apiStr.substring(0, apiStr.length - 1) : apiStr;
+        apiRootParent(): string {
+            return (solrApiParent.endsWith('/')) ? solrApiParent.substring(0, solrApiParent.length - 1) : solrApiParent;
         },
         authApiRoot(): string {
             return this.isLocalHost ? localAuthApi : productionAuthApi;

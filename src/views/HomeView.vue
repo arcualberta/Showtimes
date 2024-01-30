@@ -46,7 +46,6 @@ watch(apiToken, async (newVal, oldVal) => {
   <!--<input type="checkbox" v-model="store.targetDuplicateIndex" /> Use index with duplicate showtime records-->
   <SolrSearchPanel 
     :search-fields="solrFields" 
-    :query-api="store.searchApiRoot"
     :entry-type-field-name="entryTypeFieldName"
     :data-source-options="dataSourceOptions"
     :entryTypeFieldOptions="entryTypeFieldOptions"

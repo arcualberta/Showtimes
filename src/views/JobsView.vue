@@ -8,5 +8,5 @@ const showtimesStore = useShowtimeStore();
 
 <template>
     <h4>Jobs</h4>
-    <JobTracker :api-root="showtimesStore.apiRoot" :page-size="50" :user="showtimesStore.user" :admins="adminUsers"/>
+    <JobTracker :api-root="showtimesStore.apiRoot1" :page-size="50" :user="showtimesStore.user" :admins="adminUsers"/>
   </template>
