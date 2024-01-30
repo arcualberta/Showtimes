@@ -2,7 +2,7 @@
 //import {SolrSerachPanel} from ""
 import {eUiMode, solrFields} from '@/appsettings'
 import { useShowtimeStore } from '@/stores';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { entryTypeFieldName, entryTypeFieldOptions, dataSourceOptions } from '../appsettings'
 import { adminUsers, showtimesTenantId }  from '@/appsettings'
 import type {Guid} from 'guid-typescript'
@@ -25,7 +25,7 @@ watch(editItemId,  async (newId, oldId) => {
 })
 
 const store = useShowtimeStore();
-
+const selectedApiUrl=ref('');
 onMounted(() => {
   store.uiMode = eUiMode.Default
 })
@@ -37,6 +37,12 @@ watch(apiToken, async (newVal, oldVal) => {
     console.log("updated apiToken" + apiToken.value)
 });
 
+
+const selectedApiUrlFromChildComponent=(val)=>{
+  alert(val)
+  store.setSelectedApiUrl(val);
+  sessionStorage.setItem("currentSelectedApi", val);
+}
 </script>
 
 <template>
@@ -55,5 +61,8 @@ watch(apiToken, async (newVal, oldVal) => {
     :edit-Page="'editPageCallback'"
     :api-token="store.getApiToken"
     :tenant-id="showtimesTenantId"
+    
+    @getSelectedApiUrl="selectedApiUrlFromChildComponent"
     />
+    <div>{{getSelectedQuryUrl}}</div>
 </template>

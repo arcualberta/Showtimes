@@ -11,8 +11,8 @@ const route = useRoute();
 const id = route.params.id as unknown as Guid;
 
 const store = useShowtimeStore();
-const solrSearchStore = CatfishUI.SolrSearchStore();
-console.log("Data Source: ", solrSearchStore.getSelectedDataSource)
+//const solrSearchStore = CatfishUI.SolrSearchStore();
+console.log("Data Source: ", store.apiRoot1)
 
 const apiToken = ref(store.getApiToken);
 watch(apiToken, async (newVal, oldVal) => {
