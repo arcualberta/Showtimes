@@ -3,11 +3,7 @@ import type { Guid } from "guid-typescript";
 export const googleLocalClientId = "589183038778-u256nlels7v2443j3h1unvtp367f80s4.apps.googleusercontent.com";
 export const googleProductionClientId = "589183038778-i21iod3d3obrmot5vk3ap59akglg5a9u.apps.googleusercontent.com";
 
-//export const localQueryApi = "https://localhost:5020/api/solr-search"
-export const localQueryApi = "https://showtimes.artsrn.ualberta.ca/solr"
-export const localQueryApiDup = "https://showtimes.artsrn.ualberta.ca/solr"
-export const productionQueryApi = "/db/api/solr-search"
-export const productionQueryApiDup = "/db2/api/solr-search"
+export const solrApiParent = "https://showtimes.artsrn.ualberta.ca"
 
 export const localAuthApi = "https://auth.artsrn.ualberta.ca"
 export const productionAuthApi = "https://auth.artsrn.ualberta.ca"
