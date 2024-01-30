@@ -55,8 +55,19 @@ export interface SolrEntryType {
 
 export const entryTypeFieldName = "entry_type_s"; 
 export const entryTypeFieldOptions = [{name:"movie", label:"Movies", entryType: eShowtimeEntryType.Movie}, {name:"theater", label:"Theaters", entryType: eShowtimeEntryType.Theater}, {name:"showtime", label:"Showtimes", entryType: eShowtimeEntryType.Showtime}] as SolrEntryType[];
-export const dataSourceOptions = [{label:"ALL", constraint:""}, {label:"New", constraint:"-data_src_s:*"}, {label:"Old", constraint:"data_src_s:kinomatics"}];
-
+//export const dataSourceOptions = [{label:"ALL", constraint:""}, {label:"New", constraint:"-data_src_s:*"}, {label:"Old", constraint:"data_src_s:kinomatics"}];
+export const dataSourceOptions = [
+    {
+        label:"Old", 
+        //constraint:"data_src_s:kinomatics",
+        api: `${solrApiParent}/solr1/api/SolrSearch`
+    },
+    {
+        label:"New", 
+        //constraint:"-data_src_s:*",
+        api: `${solrApiParent}/solr2/api/SolrSearch`
+    }
+];
 export const solrFields:SearchFieldDefinition[] = [
     { name: "entry_type_s", label: "Entry Type", type: eFieldType.Text, options: [], entryType: [eShowtimeEntryType.Movie, eShowtimeEntryType.Theater, eShowtimeEntryType.Showtime]},
     { name: "instance_count_i", label: "Instance Count", type: eFieldType.Integer, options: [], entryType: [eShowtimeEntryType.Theater] },    
