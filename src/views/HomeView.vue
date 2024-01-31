@@ -39,7 +39,7 @@ watch(apiToken, async (newVal, oldVal) => {
 
 
 const selectedApiUrlFromChildComponent=(val)=>{
-  alert(val)
+  //alert(val)
   store.setSelectedApiUrl(val);
   sessionStorage.setItem("currentSelectedApi", val);
 }
@@ -64,5 +64,5 @@ const selectedApiUrlFromChildComponent=(val)=>{
     
     @getSelectedApiUrl="selectedApiUrlFromChildComponent"
     />
-    <div>{{getSelectedQuryUrl}}</div>
+    
 </template>

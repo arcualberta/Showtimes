@@ -12,13 +12,13 @@ const id = route.params.id as unknown as Guid;
 
 const store = useShowtimeStore();
 //const solrSearchStore = CatfishUI.SolrSearchStore();
-console.log("Data Source: ", store.apiRoot1)
+//console.log("Data Source: ", store.apiRoot1)
 
 const apiToken = ref(store.getApiToken);
 watch(apiToken, async (newVal, oldVal) => {
   
     apiToken.value = newVal as string;
-    console.log("updated apiToken" + apiToken.value)
+   // console.log("updated apiToken" + apiToken.value)
 });
 
 
