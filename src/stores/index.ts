@@ -12,9 +12,10 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
     }),
     getters: {
         apiRoot1(): string {
-            const lastIndex = this.selectedApiUrl? this.selectedApiUrl.indexOf("api"): null;
-            const apiUrl = this.selectedApiUrl? this.selectedApiUrl?.substring(0, lastIndex - 1) : `${this.apiRootParent}/solr1`
-            return apiUrl// `${this.apiRootParent}/solr1`
+            //const lastIndex = this.selectedApiUrl? this.selectedApiUrl.indexOf("api"): null;
+            //const apiUrl = this.selectedApiUrl? this.selectedApiUrl?.substring(0, lastIndex - 1) : `${this.apiRootParent}/solr1`
+            //return apiUrl// `${this.apiRootParent}/solr1`
+            return `${this.apiRootParent}/solr1`
         },
         apiRoot2(): string {
             return `${this.apiRootParent}/solr2`
@@ -26,7 +27,7 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
         },
         getApiToken(): string{
-            return this.apiToken ? this.apiToken : "apiToken is empty";
+            return this.apiToken!;
         }
     },
     actions: {

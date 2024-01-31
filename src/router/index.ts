@@ -4,7 +4,7 @@ import RawQueryView from '../views/RawQueryView.vue'
 import JobsView from '../views/JobsView.vue'
 import ItemEditorViewVue from '@/views/ItemEditorView.vue'
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {

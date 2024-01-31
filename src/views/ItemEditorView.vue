@@ -14,14 +14,14 @@ const store = useShowtimeStore();
 //const solrSearchStore = CatfishUI.SolrSearchStore();
 //console.log("Data Source: ", store.apiRoot1)
 
+/*
 const apiToken = ref(store.getApiToken);
 watch(apiToken, async (newVal, oldVal) => {
   
     apiToken.value = newVal as string;
    // console.log("updated apiToken" + apiToken.value)
 });
-
-
+*/
 </script>
 <template>
     <SolrItemEditor 

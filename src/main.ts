@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import BootstrapVue3 from 'bootstrap-vue-3'
-import IconsPlugin from 'bootstrap-vue-3'
+//import IconsPlugin from 'bootstrap-vue-3'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
@@ -36,7 +36,7 @@ const googleClientId = isLocalHost ? googleLocalClientId : googleProductionClien
 app.use(createPinia())
 app.use(router)
 app.use(BootstrapVue3) 
-app.use(IconsPlugin) 
+//app.use(IconsPlugin) 
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(CatfishUI.FloatingVue)
 app.use(vue3GoogleLogin, {
