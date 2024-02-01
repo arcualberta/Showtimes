@@ -60,12 +60,12 @@ export const dataSourceOptions = [
     {
         label:"Old", 
         //constraint:"data_src_s:kinomatics",
-        api: `${solrApiParent}/solr1/api/SolrSearch`
+        api: `${solrApiParent}/solr`
     },
     {
         label:"New", 
         //constraint:"-data_src_s:*",
-        api: `${solrApiParent}/solr2/api/SolrSearch`
+        api: `${solrApiParent}/solr`
     }
 ];
 export const solrFields:SearchFieldDefinition[] = [
