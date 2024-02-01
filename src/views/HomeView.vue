@@ -2,14 +2,38 @@
 //import {SolrSerachPanel} from ""
 import {eUiMode, solrFields} from '@/appsettings'
 import { useShowtimeStore } from '@/stores';
-import { onMounted } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { entryTypeFieldName, entryTypeFieldOptions, dataSourceOptions } from '../appsettings'
+import { adminUsers, showtimesTenantId }  from '@/appsettings'
+import type {Guid} from 'guid-typescript'
+import { watch } from 'vue';
+import { useRouter } from 'vue-router';
+
+const currentUser = sessionStorage.getItem("user");
+const allowEdit = currentUser? adminUsers.includes(currentUser) : false;
 
 const store = useShowtimeStore();
-
+const selectedApiUrl=ref('');
 onMounted(() => {
   store.uiMode = eUiMode.Default
 })
+
+const apiToken = ref(store.getApiToken);
+watch(apiToken, async (newVal, oldVal) => {
+  
+    apiToken.value = newVal as string;
+    console.log("updated apiToken" + apiToken.value)
+});
+
+
+const selectedApiUrlFromChildComponent = (val: string)=>{
+  store.setSelectedApiUrl(val);
+  sessionStorage.setItem("currentSelectedApi", val);
+}
+
+if(dataSourceOptions?.length){
+  store.setSelectedApiUrl(dataSourceOptions[0].api)
+}
 </script>
 
 <template>
@@ -17,10 +41,17 @@ onMounted(() => {
   <!--<input type="checkbox" v-model="store.targetDuplicateIndex" /> Use index with duplicate showtime records-->
   <SolrSearchPanel 
     :search-fields="solrFields" 
-    :query-api="store.queryApi"
     :entry-type-field-name="entryTypeFieldName"
     :data-source-options="dataSourceOptions"
     :entryTypeFieldOptions="entryTypeFieldOptions"
     :ui-mode="store.uiMode"
-    :user="store.user" />
+    :user="store.user"
+    :enable-editing="allowEdit"
+    :edit-Page="'edit'"
+    :api-token="store.getApiToken"
+    :tenant-id="showtimesTenantId"
+    
+    @getSelectedApiUrl="selectedApiUrlFromChildComponent"
+    />
+    
 </template>

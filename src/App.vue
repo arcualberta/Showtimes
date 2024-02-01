@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+
+import { onMounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import { useShowtimeStore } from './stores';
 
@@ -18,7 +19,20 @@ const logout = () => {
 
 onMounted(() => {
   store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
+   store.loadApiToken();
+
 })
+//  const apiToken = store.getApiToken;//ref(store.apiToken as string);
+//console.log("apiToken" + apiToken)
+
+const apiToken = ref(store.getApiToken)
+watch(apiToken, async (newVal, oldVal) => {
+  
+    apiToken.value = newVal as string;
+    console.log("updated apiToken" + apiToken.value)
+});
+
+
 </script>
 
 <template>

@@ -1,8 +1,21 @@
-export const localQueryApi = "https://localhost:5020/api/solr-search"
-export const localQueryApiDup = "https://localhost:5021/api/solr-search"
-export const productionQueryApi = "/db/api/solr-search"
-export const productionQueryApiDup = "/db2/api/solr-search"
+import type { Guid } from "guid-typescript";
 
+export const googleLocalClientId = "589183038778-u256nlels7v2443j3h1unvtp367f80s4.apps.googleusercontent.com";
+export const googleProductionClientId = "589183038778-i21iod3d3obrmot5vk3ap59akglg5a9u.apps.googleusercontent.com";
+
+export const solrApiParent = "https://showtimes.artsrn.ualberta.ca"
+
+export const localAuthApi = "https://auth.artsrn.ualberta.ca"
+export const productionAuthApi = "https://auth.artsrn.ualberta.ca"
+
+export const adminUsers = ['ranaweer@ualberta.ca', 'iwickram@ualberta.ca', 'debver@ualberta.ca']
+
+export const appId = "22edb968-b74c-4826-bef0-6fda9d6c349d" as unknown as Guid //on prod auth.api
+export const showtimesTenantId = "8deac4c1-6f12-43d8-9998-f59c814f0db6" as unknown as Guid //on prod auth.api
+
+//fields that're specific to "showtimes" that need to be excluded from the solr-item-editor -- these are solr field name
+export const applicationSpecificExcludedFields=['entry_type_s','data_src_s','showtime_key_t','movie_id_i','parent_id_i',
+                                            'theater_id_i','origin_parent_id_i'];
 export enum eUiMode{
     Default = 0,
     Raw,
@@ -42,8 +55,19 @@ export interface SolrEntryType {
 
 export const entryTypeFieldName = "entry_type_s"; 
 export const entryTypeFieldOptions = [{name:"movie", label:"Movies", entryType: eShowtimeEntryType.Movie}, {name:"theater", label:"Theaters", entryType: eShowtimeEntryType.Theater}, {name:"showtime", label:"Showtimes", entryType: eShowtimeEntryType.Showtime}] as SolrEntryType[];
-export const dataSourceOptions = [{label:"ALL", constraint:""}, {label:"New", constraint:"-data_src_s:*"}, {label:"Old", constraint:"data_src_s:kinomatics"}];
-
+//export const dataSourceOptions = [{label:"ALL", constraint:""}, {label:"New", constraint:"-data_src_s:*"}, {label:"Old", constraint:"data_src_s:kinomatics"}];
+export const dataSourceOptions = [
+    {
+        label:"Old", 
+        //constraint:"data_src_s:kinomatics",
+        api: `${solrApiParent}/solr1/api/SolrSearch`
+    },
+    {
+        label:"New", 
+        //constraint:"-data_src_s:*",
+        api: `${solrApiParent}/solr2/api/SolrSearch`
+    }
+];
 export const solrFields:SearchFieldDefinition[] = [
     { name: "entry_type_s", label: "Entry Type", type: eFieldType.Text, options: [], entryType: [eShowtimeEntryType.Movie, eShowtimeEntryType.Theater, eShowtimeEntryType.Showtime]},
     { name: "instance_count_i", label: "Instance Count", type: eFieldType.Integer, options: [], entryType: [eShowtimeEntryType.Theater] },    
