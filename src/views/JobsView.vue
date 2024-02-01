@@ -17,9 +17,11 @@ onMounted(() => {
 
 <template>
     <h4>Jobs</h4>
+    <!--
     {{ showtimesTenantId }}<br />
     {{ apiRoot }}<br />
     {{ store.getApiToken }}
+    -->
     <JobTracker 
       :api-root="apiRoot" 
       :page-size="50" 
