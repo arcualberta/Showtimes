@@ -10,6 +10,9 @@ import * as CatfishUI from 'applets'
 const route = useRoute();
 const id = route.params.id as unknown as Guid;
 
+const currentUser = sessionStorage.getItem("user");
+const allowEdit = currentUser? adminUsers.includes(currentUser) : false;
+
 const store = useShowtimeStore();
 //const solrSearchStore = CatfishUI.SolrSearchStore();
 //console.log("Data Source: ", store.apiRoot1)
@@ -24,12 +27,17 @@ watch(apiToken, async (newVal, oldVal) => {
 */
 </script>
 <template>
-    <SolrItemEditor 
-               :pinia-instance="getActivePinia()"
-               :id="id" 
-               :api-token="store.getApiToken"
-               :tenant-id="showtimesTenantId"
-               :api-root="store.apiRoot1"
-               :appSpecificExcludedFields="applicationSpecificExcludedFields"
-               />
+    <div v-if="allowEdit">
+        <SolrItemEditor 
+            :pinia-instance="getActivePinia()"
+            :id="id" 
+            :api-token="store.getApiToken"
+            :tenant-id="showtimesTenantId"
+            :api-root="store.apiRoot1"
+            :appSpecificExcludedFields="applicationSpecificExcludedFields"
+        />
+    </div>
+    <div v-else class="alert alert-danger">
+        Permission Denied.
+    </div>
   </template>

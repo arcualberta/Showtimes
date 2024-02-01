@@ -12,18 +12,6 @@ import { useRouter } from 'vue-router';
 const currentUser = sessionStorage.getItem("user");
 const allowEdit = currentUser? adminUsers.includes(currentUser) : false;
 
-const isValidGUID = (value: string): boolean =>  (/^(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}$/).test(value)
-
-const editItemId = ref("");
-const router = useRouter();
-
-watch(editItemId,  async (newId, oldId) => {
-  if(isValidGUID(newId))
-  {
-    router.push(`/edit/${newId}`)
-  }
-})
-
 const store = useShowtimeStore();
 const selectedApiUrl=ref('');
 onMounted(() => {
@@ -49,8 +37,6 @@ if(dataSourceOptions?.length){
 </script>
 
 <template>
-  <h4>Edit</h4>
-  <input v-model="editItemId" />
   <h4>Filter</h4>
   <!--<input type="checkbox" v-model="store.targetDuplicateIndex" /> Use index with duplicate showtime records-->
   <SolrSearchPanel 
@@ -61,7 +47,7 @@ if(dataSourceOptions?.length){
     :ui-mode="store.uiMode"
     :user="store.user"
     :enable-editing="allowEdit"
-    :edit-Page="'editPageCallback'"
+    :edit-Page="'edit'"
     :api-token="store.getApiToken"
     :tenant-id="showtimesTenantId"
     

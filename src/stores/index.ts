@@ -8,7 +8,7 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         uiMode: eUiMode.Default, 
         user: null as string | null,
         apiToken: null as string | null,
-        selectedApiUrl: null as string | null
+        selectedApiUrl: null as string | null,
     }),
     getters: {
         apiRoot1(): string {
