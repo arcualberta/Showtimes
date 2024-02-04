@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { eUiMode, solrApiParent, localAuthApi, productionAuthApi, appId,showtimesTenantId } from '../appsettings';
+import { api } from '@arc/arc-foundation'
 
 export const useShowtimeStore = defineStore('ShowtimeStore', {
     state: () => ({
@@ -31,9 +32,9 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         }
     },
     actions: {
-        loadApiToken(): void {
-             //TODO: Obtain the API token from the auth API and store it in the apiToken property.
-                //https://auth.artsrn.ualberta.ca/api/api-keys/get-new?permitCount=1'
+        async loadApiToken(): void {
+            const proxy = new api.AuthProxy(productionAuthApi)
+             
               
                 var nbf = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString();
                 var exp = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString();
