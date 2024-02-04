@@ -25,15 +25,11 @@ watch(apiToken, async (newVal, oldVal) => {
     console.log("updated apiToken" + apiToken.value)
 });
 
-
 const selectedApiUrlFromChildComponent = (val: string)=>{
   store.setSelectedApiUrl(val);
   sessionStorage.setItem("currentSelectedApi", val);
 }
 
-if(dataSourceOptions?.length){
-  store.setSelectedApiUrl(dataSourceOptions[0].api)
-}
 </script>
 
 <template>

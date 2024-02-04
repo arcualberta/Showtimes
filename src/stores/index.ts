@@ -18,13 +18,16 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
             return `${this.selectedApiUrl}`
         },
         getApiToken(): string {
-            return this.apiToken;
+            return this.apiToken!;
         },
         apiRootParent(): string {
             return (solrApiParent.endsWith('/')) ? solrApiParent.substring(0, solrApiParent.length - 1) : solrApiParent;
         },
         authApiRoot(): string {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
+        },
+        getSelectedUrl(): string {
+            return this.selectedApiUrl!
         }
     },
     actions: {
@@ -51,8 +54,6 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
                 .catch((error) => {
                     console.error('Get ApiToken Error:', error);
                 });
-               
-            
         },
         setSelectedApiUrl(value: string){
             this.selectedApiUrl = value;

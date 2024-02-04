@@ -2,10 +2,8 @@
 import { useRoute } from 'vue-router';
 import type {Guid} from 'guid-typescript'
 import { useShowtimeStore } from '@/stores';
-import { onMounted, ref, watch } from 'vue';
 import { getActivePinia } from 'pinia';
 import { adminUsers, showtimesTenantId, applicationSpecificExcludedFields }  from '@/appsettings'
-import * as CatfishUI from 'applets'
 
 const route = useRoute();
 const id = route.params.id as unknown as Guid;
@@ -32,7 +30,7 @@ watch(apiToken, async (newVal, oldVal) => {
             :id="id" 
             :api-token="store.getApiToken"
             :tenant-id="showtimesTenantId"
-            :api-root="store.setSelectedApiUrl"
+            :api-root="store.getSelectedUrl"
             :appSpecificExcludedFields="applicationSpecificExcludedFields"
         />
     </div>
