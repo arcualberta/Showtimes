@@ -9,8 +9,10 @@ const apiRoot = ref(dataSourceOptions[0].api)
 
 onMounted(() => {
   store.isLocalHost = (window.location?.host?.indexOf('localhost') >= 0);
-   store.loadApiToken();
 
+  if(store.getApiToken?.length > 0){
+    store.loadApiToken();
+  }
 })
 
 </script>
