@@ -2,10 +2,8 @@
 import { useRoute } from 'vue-router';
 import type {Guid} from 'guid-typescript'
 import { useShowtimeStore } from '@/stores';
-import { ref, watch } from 'vue';
 import { getActivePinia } from 'pinia';
 import { adminUsers, showtimesTenantId, applicationSpecificExcludedFields }  from '@/appsettings'
-import * as CatfishUI from 'applets'
 
 const route = useRoute();
 const id = route.params.id as unknown as Guid;
@@ -14,8 +12,6 @@ const currentUser = sessionStorage.getItem("user");
 const allowEdit = currentUser? adminUsers.includes(currentUser) : false;
 
 const store = useShowtimeStore();
-//const solrSearchStore = CatfishUI.SolrSearchStore();
-//console.log("Data Source: ", store.apiRoot1)
 
 /*
 const apiToken = ref(store.getApiToken);
@@ -25,6 +21,7 @@ watch(apiToken, async (newVal, oldVal) => {
    // console.log("updated apiToken" + apiToken.value)
 });
 */
+
 </script>
 <template>
     <div v-if="allowEdit">
@@ -33,7 +30,7 @@ watch(apiToken, async (newVal, oldVal) => {
             :id="id" 
             :api-token="store.getApiToken"
             :tenant-id="showtimesTenantId"
-            :api-root="store.apiRoot1"
+            :api-root="store.getSelectedUrl"
             :appSpecificExcludedFields="applicationSpecificExcludedFields"
         />
     </div>

@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import { eUiMode, solrApiParent, localAuthApi, productionAuthApi, appId,showtimesTenantId } from '../appsettings';
+import { api } from '@arc/arc-foundation'
 
 export const useShowtimeStore = defineStore('ShowtimeStore', {
     state: () => ({
@@ -11,14 +12,14 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         selectedApiUrl: null as string | null,
     }),
     getters: {
-        apiRoot1(): string {
+        apiRoot(): string {
             //const lastIndex = this.selectedApiUrl? this.selectedApiUrl.indexOf("api"): null;
             //const apiUrl = this.selectedApiUrl? this.selectedApiUrl?.substring(0, lastIndex - 1) : `${this.apiRootParent}/solr1`
             //return apiUrl// `${this.apiRootParent}/solr1`
-            return `${this.apiRootParent}/solr1`
+            return `${this.selectedApiUrl}`
         },
-        apiRoot2(): string {
-            return `${this.apiRootParent}/solr2`
+        getApiToken(): string {
+            return this.apiToken!;
         },
         apiRootParent(): string {
             return (solrApiParent.endsWith('/')) ? solrApiParent.substring(0, solrApiParent.length - 1) : solrApiParent;
@@ -26,14 +27,14 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
         authApiRoot(): string {
             return this.isLocalHost ? localAuthApi : productionAuthApi;
         },
-        getApiToken(): string{
-            return this.apiToken!;
+        getSelectedUrl(): string {
+            return this.selectedApiUrl!
         }
     },
     actions: {
-        loadApiToken(): void {
-             //TODO: Obtain the API token from the auth API and store it in the apiToken property.
-                //https://auth.artsrn.ualberta.ca/api/api-keys/get-new?permitCount=1'
+        async loadApiToken(): void {
+            const proxy = new api.AuthProxy(productionAuthApi)
+             
               
                 var nbf = new Date(new Date().setDate(new Date().getDate() - 1)).toISOString();
                 var exp = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString();
@@ -54,8 +55,6 @@ export const useShowtimeStore = defineStore('ShowtimeStore', {
                 .catch((error) => {
                     console.error('Get ApiToken Error:', error);
                 });
-               
-            
         },
         setSelectedApiUrl(value: string){
             this.selectedApiUrl = value;

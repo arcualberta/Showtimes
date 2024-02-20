@@ -3,6 +3,7 @@
 import { onMounted, ref, watch } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import { useShowtimeStore } from './stores';
+import { dataSourceOptions } from './appsettings'
 
 const store = useShowtimeStore();
 
@@ -32,6 +33,10 @@ watch(apiToken, async (newVal, oldVal) => {
     console.log("updated apiToken" + apiToken.value)
 });
 
+
+if(dataSourceOptions?.length){
+  store.setSelectedApiUrl(dataSourceOptions[0].api)
+}
 
 </script>
 
